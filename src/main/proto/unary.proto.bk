@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_package = "com.tang.grpc.demo";
+option java_outer_classname = "Grpc";
+
+message UnaryRequest {
+    string serviceName = 1;
+    string methodName = 2;
+    bytes data = 3;
+    string requestId = 4;
+}
+
+message UnaryResponse {
+    string serviceName = 1;
+    string methodName = 2;
+    bytes data = 3;
+    string requestId = 4;
+}
+
+service GrpcService {
+    rpc sendUnaryRequest (UnaryRequest) returns (UnaryResponse);
+    rpc sendRquest2 (UnaryRequest) returns (UnaryResponse);
+}
+
