@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.tang.grpc.demo;
+option java_package = "com.tang.grpc.demo.model";
+
+enum ReqType {
+    GET = 0;
+    POST = 1;
+    DELETE = 2;
+}
+
+message HelloRequest {
+    string name = 1;
+    string sex = 2;
+    bytes data = 3;
+    ReqType reqType = 4;
+}
+
+message HelloReply {
+    string message = 1;
+    bytes data = 3;
+    repeated uint32 points = 4;
+}

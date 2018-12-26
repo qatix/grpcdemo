@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class RPCController {
 
     @Autowired
-    private GrpcClient grpcClient;
+    private GrpcService grpcService;
 
     @GetMapping("/greet1")
     public String greet1(@RequestParam(name = "name") String name) {
-        return grpcClient.getClient().greet(name);
+        return grpcService.getClient().greet(name);
     }
 
     @GetMapping("/greet2")
     public String greet1(@RequestParam(name = "name") String name,
                          @RequestParam(name = "sex") String sex,
                          @RequestParam(name = "data") String data) {
-        return grpcClient.getClient().greetWhat(name, sex, data);
+        return grpcService.getClient().greetWhat(name, sex, data);
     }
 }

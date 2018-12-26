@@ -1,11 +1,13 @@
 syntax = "proto3";
 
+package com.tang.grpc.demo;
+
 option java_multiple_files = true;
-option java_package = "com.tang.grpc.demo";
-option java_outer_classname = "TangHelloProto";
+option java_package = "com.tang.grpc.demo.service";
+option java_outer_classname = "HelloProto";
 option objc_class_prefix = "TG";
 
-package helloworld;
+import "model.proto";
 
 service Greeter {
     rpc SayHello (HelloRequest) returns (HelloReply) {
@@ -14,13 +16,3 @@ service Greeter {
     }
 }
 
-message HelloRequest {
-    string name = 1;
-    string sex = 2;
-    bytes data = 3;
-}
-
-message HelloReply {
-    string message = 1;
-    bytes data = 3;
-}

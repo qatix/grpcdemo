@@ -1,4 +1,4 @@
-package com.tang.grpc.demo;
+package com.tang.grpc.demo.service;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
@@ -24,33 +24,33 @@ public final class GreeterGrpc {
 
   private GreeterGrpc() {}
 
-  public static final String SERVICE_NAME = "helloworld.Greeter";
+  public static final String SERVICE_NAME = "com.tang.grpc.demo.Greeter";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<HelloRequest,
-      HelloReply> getSayHelloMethod;
+  private static volatile io.grpc.MethodDescriptor<com.tang.grpc.demo.model.Model.HelloRequest,
+      com.tang.grpc.demo.model.Model.HelloReply> getSayHelloMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "SayHello",
-      requestType = HelloRequest.class,
-      responseType = HelloReply.class,
+      requestType = com.tang.grpc.demo.model.Model.HelloRequest.class,
+      responseType = com.tang.grpc.demo.model.Model.HelloReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<HelloRequest,
-      HelloReply> getSayHelloMethod() {
-    io.grpc.MethodDescriptor<HelloRequest, HelloReply> getSayHelloMethod;
+  public static io.grpc.MethodDescriptor<com.tang.grpc.demo.model.Model.HelloRequest,
+      com.tang.grpc.demo.model.Model.HelloReply> getSayHelloMethod() {
+    io.grpc.MethodDescriptor<com.tang.grpc.demo.model.Model.HelloRequest, com.tang.grpc.demo.model.Model.HelloReply> getSayHelloMethod;
     if ((getSayHelloMethod = GreeterGrpc.getSayHelloMethod) == null) {
       synchronized (GreeterGrpc.class) {
         if ((getSayHelloMethod = GreeterGrpc.getSayHelloMethod) == null) {
           GreeterGrpc.getSayHelloMethod = getSayHelloMethod = 
-              io.grpc.MethodDescriptor.<HelloRequest, HelloReply>newBuilder()
+              io.grpc.MethodDescriptor.<com.tang.grpc.demo.model.Model.HelloRequest, com.tang.grpc.demo.model.Model.HelloReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "helloworld.Greeter", "SayHello"))
+                  "com.tang.grpc.demo.Greeter", "SayHello"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  HelloRequest.getDefaultInstance()))
+                  com.tang.grpc.demo.model.Model.HelloRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  HelloReply.getDefaultInstance()))
+                  com.tang.grpc.demo.model.Model.HelloReply.getDefaultInstance()))
                   .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayHello"))
                   .build();
           }
@@ -59,30 +59,30 @@ public final class GreeterGrpc {
      return getSayHelloMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<HelloRequest,
-      HelloReply> getSayWhatMethod;
+  private static volatile io.grpc.MethodDescriptor<com.tang.grpc.demo.model.Model.HelloRequest,
+      com.tang.grpc.demo.model.Model.HelloReply> getSayWhatMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "SayWhat",
-      requestType = HelloRequest.class,
-      responseType = HelloReply.class,
+      requestType = com.tang.grpc.demo.model.Model.HelloRequest.class,
+      responseType = com.tang.grpc.demo.model.Model.HelloReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<HelloRequest,
-      HelloReply> getSayWhatMethod() {
-    io.grpc.MethodDescriptor<HelloRequest, HelloReply> getSayWhatMethod;
+  public static io.grpc.MethodDescriptor<com.tang.grpc.demo.model.Model.HelloRequest,
+      com.tang.grpc.demo.model.Model.HelloReply> getSayWhatMethod() {
+    io.grpc.MethodDescriptor<com.tang.grpc.demo.model.Model.HelloRequest, com.tang.grpc.demo.model.Model.HelloReply> getSayWhatMethod;
     if ((getSayWhatMethod = GreeterGrpc.getSayWhatMethod) == null) {
       synchronized (GreeterGrpc.class) {
         if ((getSayWhatMethod = GreeterGrpc.getSayWhatMethod) == null) {
           GreeterGrpc.getSayWhatMethod = getSayWhatMethod = 
-              io.grpc.MethodDescriptor.<HelloRequest, HelloReply>newBuilder()
+              io.grpc.MethodDescriptor.<com.tang.grpc.demo.model.Model.HelloRequest, com.tang.grpc.demo.model.Model.HelloReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "helloworld.Greeter", "SayWhat"))
+                  "com.tang.grpc.demo.Greeter", "SayWhat"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  HelloRequest.getDefaultInstance()))
+                  com.tang.grpc.demo.model.Model.HelloRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  HelloReply.getDefaultInstance()))
+                  com.tang.grpc.demo.model.Model.HelloReply.getDefaultInstance()))
                   .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayWhat"))
                   .build();
           }
@@ -120,15 +120,15 @@ public final class GreeterGrpc {
 
     /**
      */
-    public void sayHello(HelloRequest request,
-        io.grpc.stub.StreamObserver<HelloReply> responseObserver) {
+    public void sayHello(com.tang.grpc.demo.model.Model.HelloRequest request,
+        io.grpc.stub.StreamObserver<com.tang.grpc.demo.model.Model.HelloReply> responseObserver) {
       asyncUnimplementedUnaryCall(getSayHelloMethod(), responseObserver);
     }
 
     /**
      */
-    public void sayWhat(HelloRequest request,
-        io.grpc.stub.StreamObserver<HelloReply> responseObserver) {
+    public void sayWhat(com.tang.grpc.demo.model.Model.HelloRequest request,
+        io.grpc.stub.StreamObserver<com.tang.grpc.demo.model.Model.HelloReply> responseObserver) {
       asyncUnimplementedUnaryCall(getSayWhatMethod(), responseObserver);
     }
 
@@ -138,15 +138,15 @@ public final class GreeterGrpc {
             getSayHelloMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                HelloRequest,
-                HelloReply>(
+                com.tang.grpc.demo.model.Model.HelloRequest,
+                com.tang.grpc.demo.model.Model.HelloReply>(
                   this, METHODID_SAY_HELLO)))
           .addMethod(
             getSayWhatMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                HelloRequest,
-                HelloReply>(
+                com.tang.grpc.demo.model.Model.HelloRequest,
+                com.tang.grpc.demo.model.Model.HelloReply>(
                   this, METHODID_SAY_WHAT)))
           .build();
     }
@@ -172,16 +172,16 @@ public final class GreeterGrpc {
 
     /**
      */
-    public void sayHello(HelloRequest request,
-        io.grpc.stub.StreamObserver<HelloReply> responseObserver) {
+    public void sayHello(com.tang.grpc.demo.model.Model.HelloRequest request,
+        io.grpc.stub.StreamObserver<com.tang.grpc.demo.model.Model.HelloReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSayHelloMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void sayWhat(HelloRequest request,
-        io.grpc.stub.StreamObserver<HelloReply> responseObserver) {
+    public void sayWhat(com.tang.grpc.demo.model.Model.HelloRequest request,
+        io.grpc.stub.StreamObserver<com.tang.grpc.demo.model.Model.HelloReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSayWhatMethod(), getCallOptions()), request, responseObserver);
     }
@@ -207,14 +207,14 @@ public final class GreeterGrpc {
 
     /**
      */
-    public HelloReply sayHello(HelloRequest request) {
+    public com.tang.grpc.demo.model.Model.HelloReply sayHello(com.tang.grpc.demo.model.Model.HelloRequest request) {
       return blockingUnaryCall(
           getChannel(), getSayHelloMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public HelloReply sayWhat(HelloRequest request) {
+    public com.tang.grpc.demo.model.Model.HelloReply sayWhat(com.tang.grpc.demo.model.Model.HelloRequest request) {
       return blockingUnaryCall(
           getChannel(), getSayWhatMethod(), getCallOptions(), request);
     }
@@ -240,16 +240,16 @@ public final class GreeterGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<HelloReply> sayHello(
-        HelloRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.tang.grpc.demo.model.Model.HelloReply> sayHello(
+        com.tang.grpc.demo.model.Model.HelloRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getSayHelloMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<HelloReply> sayWhat(
-        HelloRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.tang.grpc.demo.model.Model.HelloReply> sayWhat(
+        com.tang.grpc.demo.model.Model.HelloRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getSayWhatMethod(), getCallOptions()), request);
     }
@@ -276,12 +276,12 @@ public final class GreeterGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_SAY_HELLO:
-          serviceImpl.sayHello((HelloRequest) request,
-              (io.grpc.stub.StreamObserver<HelloReply>) responseObserver);
+          serviceImpl.sayHello((com.tang.grpc.demo.model.Model.HelloRequest) request,
+              (io.grpc.stub.StreamObserver<com.tang.grpc.demo.model.Model.HelloReply>) responseObserver);
           break;
         case METHODID_SAY_WHAT:
-          serviceImpl.sayWhat((HelloRequest) request,
-              (io.grpc.stub.StreamObserver<HelloReply>) responseObserver);
+          serviceImpl.sayWhat((com.tang.grpc.demo.model.Model.HelloRequest) request,
+              (io.grpc.stub.StreamObserver<com.tang.grpc.demo.model.Model.HelloReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -305,7 +305,7 @@ public final class GreeterGrpc {
 
     @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return TangHelloProto.getDescriptor();
+      return HelloProto.getDescriptor();
     }
 
     @Override

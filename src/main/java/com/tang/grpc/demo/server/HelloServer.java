@@ -1,8 +1,7 @@
 package com.tang.grpc.demo.server;
 
-import com.tang.grpc.demo.GreeterGrpc;
-import com.tang.grpc.demo.HelloReply;
-import com.tang.grpc.demo.HelloRequest;
+import com.tang.grpc.demo.model.Model;
+import com.tang.grpc.demo.service.GreeterGrpc;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -42,7 +41,7 @@ public class HelloServer {
 
     private class GreeterImpl extends GreeterGrpc.GreeterImplBase {
         @Override
-        public void sayHello(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
+        public void sayHello(Model.HelloRequest request, StreamObserver<Model.HelloReply> responseObserver) {
 //            super.sayHello(request, responseObserver);
             System.out.println("[sayHello]receive message:" + request.getName());
 
@@ -50,24 +49,27 @@ public class HelloServer {
 
             //end work
 
-            HelloReply reply = HelloReply.newBuilder()
+            Model.HelloReply reply = Model.HelloReply.newBuilder()
                     .setMessage(request.getName() + "[reply]").build();
             responseObserver.onNext(reply);
             responseObserver.onCompleted();
         }
 
         @Override
-        public void sayWhat(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
+        public void sayWhat(Model.HelloRequest request, StreamObserver<Model.HelloReply> responseObserver) {
             System.out.println("[sayWhat]receive message:" + request.getName()
                     + "\tsex:" + request.getSex()
-                    + "\tdatas:" + new String(request.getData().toByteArray()));
+                    + "\tdatas:" + new String(request.getData().toByteArray())
+                    + "\ttype:" + request.getReqType()
+            );
             //start work
 
             //end work
 
-            HelloReply reply = HelloReply.newBuilder()
+            Model.HelloReply reply = Model.HelloReply.newBuilder()
                     .setMessage("[reply]" + request.getName() + "|" +
-                            request.getSex() + "|" + "data[" + new String(request.getData().toByteArray()) + "]").build();
+                            request.getSex() + "|" + "data[" + new String(request.getData().toByteArray()) + "] type="+request.getReqType())
+                    .addPoints(2).addPoints(33).addPoints(21).build();
             responseObserver.onNext(reply);
             responseObserver.onCompleted();
         }
