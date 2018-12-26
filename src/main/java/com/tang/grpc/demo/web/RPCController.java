@@ -1,5 +1,6 @@
-package com.tang.grpc.demo.client;
+package com.tang.grpc.demo.web;
 
+import com.tang.grpc.demo.client.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

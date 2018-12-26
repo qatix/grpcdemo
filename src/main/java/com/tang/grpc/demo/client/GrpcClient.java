@@ -15,7 +15,7 @@ public class GrpcClient {
     private final GreeterGrpc.GreeterBlockingStub blockingStub;
 
     //初始化信道和存根
-    public GrpcClient(int port, String host) {
+    public GrpcClient(String host, int port) {
         this(ManagedChannelBuilder.forAddress(host, port).usePlaintext());
     }
 
@@ -53,7 +53,7 @@ public class GrpcClient {
     }
 
     public static void main(String[] args) throws Exception {
-        GrpcClient client = new GrpcClient(50001, "127.0.0.1");
+        GrpcClient client = new GrpcClient("127.0.0.1", 50001);
         try {
 //            for (int i = 0; i < 5; i++) {
 //                String res =  client.greet("client world:" + i);

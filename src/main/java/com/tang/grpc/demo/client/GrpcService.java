@@ -9,7 +9,7 @@ public class GrpcService {
     private GrpcClient client;
 
     public GrpcService() {
-        client = new GrpcClient(50001, "127.0.0.01");
+        client = new GrpcClient("127.0.0.01", 50001);
     }
 
     public GrpcClient getClient() {
