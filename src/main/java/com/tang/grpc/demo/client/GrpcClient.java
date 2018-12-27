@@ -3,6 +3,7 @@ package com.tang.grpc.demo.client;
 import com.google.protobuf.ByteString;
 import com.tang.grpc.demo.model.Model;
 import com.tang.grpc.demo.service.GreeterGrpc;
+import io.grpc.LoadBalancer;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;

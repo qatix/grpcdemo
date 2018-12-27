@@ -6,6 +6,9 @@ import java.util.concurrent.ExecutorService;
 
 import static java.util.concurrent.Executors.newFixedThreadPool;
 
+/**
+ * 测试是否会发生顺序错乱问题，20个线程，10000次请求，没有发生问题
+ */
 @Slf4j
 public class ConcurrentTest {
     public static void main(String[] args) {

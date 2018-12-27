@@ -1,0 +1,7 @@
+logging:
+  level: info
+  level.com.kika.terminal: info
+  path: logs/
+  file: server.log
+
+

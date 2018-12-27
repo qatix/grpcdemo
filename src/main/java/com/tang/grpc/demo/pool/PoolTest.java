@@ -24,11 +24,14 @@ public class PoolTest {
                 String res = client.greet(msg);
                 String msgExpectRes = msg + "[reply]";
                 if (!msgExpectRes.equals(res)) {
-                    log.error("not-match:expect:" + msgExpectRes + " but get:" + res);
+                    log.error(client.toString() +  ": not-match:expect:" + msgExpectRes + " but get:" + res);
                 } else {
-                    log.info("match:" + msg);
+                    log.info(client.toString() +  ": match:" + msg);
                 }
+                GrpcClientPool.returnObject(client);
             });
         }
+
+//        executorService.shutdown();
     }
 }

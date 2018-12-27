@@ -9,7 +9,7 @@ public class GrpcClientPool {
 
     static {
         GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
-        poolConfig.setMaxTotal(10);
+        poolConfig.setMaxTotal(2);
         poolConfig.setMinIdle(2);
         poolConfig.setMaxIdle(5);
         // 当连接池资源耗尽时,调用者最大阻塞的时间,超时时抛出异常 单位:毫秒数
@@ -34,5 +34,8 @@ public class GrpcClientPool {
         }
     }
 
+    public static void returnObject(GrpcClient grpcClient){
+        objectPool.returnObject(grpcClient);
+    }
 }
 
