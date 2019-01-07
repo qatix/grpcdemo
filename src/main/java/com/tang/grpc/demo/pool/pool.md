@@ -1,6 +1,8 @@
 从代码中可看出blockingUnaryCall其实调用的是fetureUnaryCall，所以gRPC客户端本质上全部是异步的。
 所以线程池意义不是很大。
 
+https://stackoverflow.com/questions/42320492/do-i-need-to-pool-managedchannel-instances-for-a-multithreaded-java-grpc-1-1-2
+
 ```
     public static <ReqT, RespT> RespT blockingUnaryCall(
           Channel channel, MethodDescriptor<ReqT, RespT> method, CallOptions callOptions, ReqT req) {
