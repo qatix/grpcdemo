@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.tang.grpc.demo;
+option java_package = "com.tang.grpc.demo.product";
+
+message Product {
+    int32 productId = 1;
+    string name = 2;
+    int32 categoryId = 3;
+    repeated Tag tags = 4;
+    map<string, int64> atribubuteMap = 5;
+}
+
+message Tag {
+    int32 id = 1;
+    string name = 2;
+}
+
+message Attribue{
+    int32 id =1;
+    string name = 2;
+}

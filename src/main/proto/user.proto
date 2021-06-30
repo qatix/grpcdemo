@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.tang.grpc.demo;
+option java_package = "com.tang.grpc.demo.user";
+
+message User {
+    string name = 1;
+    enum Gender {
+        UNDEFINED = 0;
+        MALE = 1;
+        FEMALE = 2;
+    }
+    Gender gender = 2;
+    int32 age = 3;
+    Address address = 4;
+    bytes data = 5;
+}
+
+message Address {
+    string city = 1;
+    string district = 2;
+    string street = 3;
+    string building = 4;
+}
